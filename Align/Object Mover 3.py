@@ -3,12 +3,15 @@
 from __future__ import division, print_function, unicode_literals
 __doc__ = """
 Batch-process path positions in selected glyphs (GUI).
+
 ToDo: clean up print commands
 ToDo: also move anchors along
-ToDo: Only move slected path(s) within a single glyph (especially be careful for italics as currently positioning is solved by LSB/RSB and not italic angle directly as there was some error with that, but its in the code and if applied right it should work ... also check my Selection to Center.py for that)
+ToDo: If a single path or component is selected within a glyph, only move that one and note everything 
+		-> if this is integreated the italic positioning also needs to be adjusted as it is currently calculated using LSB/RSB 
 
+This script is based on Anchor Mover 2.0 by mekkablue
 """
-# based on Anchor Mover 2.0 by mekkablue
+
 
 import vanilla, math
 from Foundation import NSPoint
@@ -137,7 +140,7 @@ listVertical = (
 	("align center @ half x-height", "selectedXheight // 2.0"),
 	("align center @ half smallcap height", "originalMaster.customParameters['smallCapHeight']/2"),
 	("align center @ half ascender", "selectedAscender // 2.0"),
-	("align top, exaclty at --------------", "0.0 - copyPathHeight // 2"),
+	("align top, exaclty at -------------->", "0.0 - copyPathHeight // 2"),
 	("align top @ ascender", "selectedAscender - copyPathHeight // 2"),
 	("align top @ cap height", "selectedCapheight - copyPathHeight // 2"),
 	("align top @ smallcap height", "originalMaster.customParameters['smallCapHeight']- copyPathHeight // 2"),
