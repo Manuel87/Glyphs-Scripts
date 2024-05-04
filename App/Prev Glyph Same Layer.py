@@ -1,5 +1,8 @@
 #MenuTitle: Edit Previous Glyph, same layer
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+from __future__ import division, print_function, unicode_literals
+import traceback
+from copy import copy
 
 # build upon "Edit Previous Glyph" by Tim Ahrens & "Next Layer in Selection" by Alex Slobzheninov
 
